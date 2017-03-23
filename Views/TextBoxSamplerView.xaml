@@ -1,0 +1,58 @@
+﻿<Window x:Class="TextBoxSampler.Views.TextBoxSamplerView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TextBoxSampler" Height="600" Width="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="TextBox Sampler" FontFamily="Arial" FontSize="18" FontWeight="Bold" />
+        <Label Grid.Row="1" Content="Behaviors and Validation" FontSize="14" FontWeight="Bold" FontStyle="Italic"/>
+        <Border Grid.Row="2" BorderThickness="4" BorderBrush="CornflowerBlue" Margin="5,5,5,5">
+            <StackPanel Background="BlanchedAlmond">
+                <Label Content="WPF Default" FontWeight="Bold" />
+                <Grid >
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Content="Enter File Name:"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding FileName}" Style="{StaticResource DefaultTextBoxStyle}" />
+                        
+                        <Label Grid.Row="1" Grid.Column="0" Content="Enter Description:" />
+                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Description}" Style="{StaticResource DefaultTextBoxStyle}"/>
+                        
+                        <Label Grid.Row="2" Grid.Column="0" Content="Chemical Name:"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ChemicalName}" Style="{StaticResource DefaultTextBoxStyle}"/>
+
+                        <Label Grid.Row="3" Grid.Column="0" Content="Initial Concentration:"/>
+                        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding InitialConcentration}" Style="{StaticResource DefaultTextBoxStyle}"/>
+
+                        <Label Grid.Row="4" Grid.Column="0" Content="Target Concentration:"/>
+                        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding TargetConcentration}" Style="{StaticResource DefaultTextBoxStyle}"/>
+
+                        <Label Grid.Row="5" Grid.Column="0" Content="Initial Volume:"/>
+                        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding InitialVolume}" Style="{StaticResource DefaultTextBoxStyle}"/>
+                        <Label Grid.Row="5" Grid.Column="2" Content="Target Volume:" />
+                        <Label Grid.Row="5" Grid.Column="3" Content="{Binding TargetVolume}" BorderBrush="BlueViolet" BorderThickness="2"/>
+
+                    </Grid>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,17 @@
+﻿<Window x:Class="TextBoxSampler.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:textBoxSampler="clr-namespace:TextBoxSampler"
+        Title="MainWindow" Height="250" Width ="250"
+        WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <textBoxSampler:MainWindowViewModel/>
+    </Window.DataContext>
+    <StackPanel >
+        <Button Content="TextBox Sampler" Command="{Binding Path=DisplayTextBoxSamplerCommand}" Margin="5"/>
+        <Button Content="ComboBox Sampler" Command="{Binding DisplayComboBoxSamplerCommand}" Margin="5"/>
+        <Button Content="ListBox Sampler" Command="{Binding DisplayListBoxSamplerCommand}" Margin="5"/>
+        <Button Content="TBD"  Margin="5"/>
+        <Button Content="TBD"  Margin="5"/>
+    </StackPanel>
+</Window>
