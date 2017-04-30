@@ -1,0 +1,32 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <Style TargetType="ToolTip" x:Key="ErrorListToolTip">
+        <Setter Property="ToolTipService.Placement" Value="Bottom"/>
+        <Setter Property="ToolTipService.HorizontalOffset" Value="-12"/>
+        <Setter Property="ToolTipService.VerticalOffset" Value="12" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToolTip">
+                    <Grid>
+                        <Rectangle Margin="0,10,0,0" Fill="White" Stroke="Firebrick" StrokeThickness="2" />
+                        <Path VerticalAlignment="Top"
+                              HorizontalAlignment="Left"
+                              Margin="12,0,0,0"
+                              Stroke="Firebrick"
+                              StrokeThickness="2"
+                              Width="20"
+                              Height="12"
+                              Data="M 0,12 L 10,0 L 20,12"
+                              Fill="White"/>
+                        <TextBlock Margin="12,22,12,12"
+                                   Text="{TemplateBinding Content}"
+                                   TextWrapping="Wrap"
+                                   FontSize="12"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

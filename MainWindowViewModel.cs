@@ -8,6 +8,9 @@ namespace TextBoxSampler
 {
     public class MainWindowViewModel
     {
+        private Window _currentView;
+        private bool _enableButton = true;
+
         #region TextBox Sampler
 
         private RelayCommand _displayTextBoxSampler;
@@ -28,12 +31,20 @@ namespace TextBoxSampler
             var view = new TextBoxSamplerView();
             var viewModel = new TextBoxSamplerViewModel();
             view.DataContext = viewModel;
+            view.Closed += view_Closed;
             view.Show();
+            _currentView = view;
+            _enableButton = false;
+        }
+
+        void view_Closed(object sender, System.EventArgs e)
+        {
+            _enableButton = true;
         }
 
         private bool CanDisplayTextBoxSampler()
         {
-            return true;
+            return _enableButton;
         }
 
         #endregion TextBox Sampler
@@ -91,6 +102,34 @@ namespace TextBoxSampler
         }
 
         #endregion ListBox Sampler
+
+        #region CloseWindow Command
+
+        private ICommand _closeWindowCommand;
+
+        public ICommand CloseWindowCommand
+        {
+            get
+            {
+                if (_closeWindowCommand == null)
+                {
+                    _closeWindowCommand = new RelayCommand(param => CloseWindowExecute(), param => CanCloseWindow());
+                }
+                return _closeWindowCommand;
+            }
+        }
+
+        private void CloseWindowExecute()
+        {
+             _currentView.Close();  
+        }
+
+        private bool CanCloseWindow()
+        {
+            return true;
+        }
+
+        #endregion CloseWindow Command
 
     }
 }
